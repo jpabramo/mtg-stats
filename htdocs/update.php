@@ -1,5 +1,4 @@
 <?php
-  shell_exec("git pull");
-
+  exec("pwsh ../bin/update.ps1");
   header('Location: /');
 ?>

@@ -34,8 +34,8 @@ h1 {
 .menu_button {
   font-weight: bolder;
   font-size: 28pt;
-  padding: 2vw;
-  margin: 1vw;
+  padding: 1cm;
+  margin: 2mm;
   width: 100%;
   font-variant: small-caps;
 }
