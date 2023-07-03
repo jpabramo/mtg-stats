@@ -1,7 +1,3 @@
 # Cornos of Babylon
 
-foobar
-
-asdasadsdasd
-
-wjibeqehbqw
+funcionou caralho
