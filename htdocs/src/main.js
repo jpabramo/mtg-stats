@@ -6,9 +6,9 @@ var match = [];
 function showDecklist(playerid) {
   currPlayer = playerid;
   
-  document.getElementById(`decklist_${playerid}`).hidden = false;
-  player_select.hidden = true;
-  document.location.hash = "";
+  document.getElementById(`decklist_${playerid}`).classList.remove('hidden');
+  player_select.classList.add('hidden');
+  location.hash = "";
 
   callback = (e) => { if(e.code = 0x01) hideDecklist(playerid) };
   document.addEventListener('keydown', callback);
@@ -17,12 +17,12 @@ function showDecklist(playerid) {
 function hideDecklist(playerid) {
   currPlayer = undefined;
 
-  document.getElementById(`decklist_${playerid}`).hidden = true;
-  player_select.hidden = false;
+  document.getElementById(`decklist_${playerid}`).classList.add('hidden');
+  player_select.classList.remove('hidden');
 
   document.removeEventListener('keydown', callback);
 
-  document.location.hash = `player_${playerid}`;
+  location.hash = `player_${playerid}`;
 }
 
 function selectDeck(thumbnail, deckid) {
@@ -64,4 +64,10 @@ function removeDeck(deckid) {
   delete thumbnailBkp[deckid];
   
   go_btn.disabled = match.length < 2;
+}
+
+function startNewMatch() {
+  if(match.length < 2) return;
+
+  document.location = "/play.php?startMatch=" + match;
 }

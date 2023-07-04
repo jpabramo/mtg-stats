@@ -15,7 +15,7 @@
       }
       $connection->close();
       ?>
-      <button id="go_btn" class="clickable menu_button" disabled onclick="console.log('hey')">
+      <button id="go_btn" class="clickable menu_button" disabled onclick="startNewMatch()">
         GO!
       </button>
     </div>
@@ -41,7 +41,7 @@
 
   function PlayerDecklist($playerid) {
     ?>
-      <div id="decklist_<?= $playerid ?>" class="decklist" hidden>
+      <div id="decklist_<?= $playerid ?>" class="decklist hidden">
         <h1>Escolhe o Deck</h1>
         <button class="clickable close" onclick="hideDecklist(<?= $playerid ?>)">❌</button>
         <?php

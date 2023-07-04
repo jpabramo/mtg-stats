@@ -6,7 +6,7 @@
   if(!$row) {
     $mysqli->close();
     http_response_code(404);
-    return;
+    exit;
   }
   
   header("Content-Type: image/jpeg");

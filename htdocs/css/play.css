@@ -1,0 +1,117 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+}
+
+.layout_picker {
+  width: 100vw;
+  height: 100vh;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+.layout_picker button {
+  margin: 2mm;
+  font-size: 32pt;
+  padding: 1cm;
+}
+
+.deck_chooser {
+
+}
+
+.playarea {
+  display: grid;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.playmat {
+  position: relative;
+  margin: 2mm;
+  border-radius: 1cm;
+  background-color: var(--clickable-bg);
+}
+
+.lifecounter {
+  position: absolute;
+  font-weight: bold;
+  font-size: 48pt;
+  width: 100%;
+  top: calc(50% - 24pt);
+  text-align: center;
+}
+
+.lifebtn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 50%;
+}
+
+.lifebtn:active {
+  background-color: rgba(100%, 100%, 100%, 10%);
+}
+
+.lifebtn.upper { 
+  border-radius: 1cm 1cm 0 0;
+  top: 0;
+  /* background: rgba(0%, 80%, 0%, 50%); */
+}
+
+.lifebtn.lower { 
+  border-radius: 0 0 1cm 1cm;
+  bottom: 0;
+  /* background: rgba(80%, 0%, 0%, 50%); */
+}
+
+.rotate_90 {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+.rotate_180 {
+  transform: rotate(180deg);
+}
+
+.rotate_270 {
+  writing-mode: vertical-rl;
+}
+
+.rotate_90 .lifebtn,
+.rotate_270 .lifebtn {
+  width: 50%;
+  height: 100%;
+  right: 50%;
+}
+
+.rotate_270 .lifebtn.lower,
+.rotate_90 .lifebtn.lower {
+  left: 0;
+  border-radius: 1cm 0 0 1cm;
+}
+
+.rotate_90 .lifebtn.upper,
+.rotate_270 .lifebtn.upper {
+  right: 0;
+  border-radius: 0 1cm 1cm 0;
+}
+
+.rotate_270 .lifecounter {
+  right: calc(50% - 24pt);
+}
+.rotate_90 .lifecounter {
+  left: calc(50% - 24pt);
+}
+
+.hidden {
+  display: none;
+}
