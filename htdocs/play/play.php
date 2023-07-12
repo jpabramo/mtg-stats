@@ -1,5 +1,5 @@
-<?php
-  require("components/util.php");
+<?
+  require($_SERVER["DOCUMENT_ROOT"].'/components/util.php');
 
   function LoadMatch() {
     $matchid = $_GET["matchid"];
@@ -19,12 +19,12 @@
     ?>
       <script>
         var matchdetails = [];
-        <?php
+        <?
           while($row = $result->fetch_assoc()) 
             echo "matchdetails.push(" . json_encode($row) . ");";
         ?>
       </script>
-    <?php
+    <?
 
     $stmt = $connection->prepare("SELECT * FROM mtgstats.matchevents WHERE matchid = ?");
     $stmt->execute([$matchid]);
@@ -34,12 +34,12 @@
       ?>
         <script>
           var matchevents = [];
-          <?php
+          <?
             while($row = $result->fetch_assoc()) 
               echo "matchevents.push(" . json_encode($row) . ");";
           ?>
         </script>
-      <?php
+      <?
     }
 
     $connection->close();
@@ -62,7 +62,7 @@
     $connection->commit();
     $connection->close();
 
-    header("Location: /play.php?matchid=$matchid");
+    header("Location: /play/play.php?matchid=$matchid");
   }
   
   if(array_key_exists("matchid", $_GET)) LoadMatch();
@@ -71,12 +71,12 @@
   function PlayArea() {
     ?>
       <div id="playarea" class="playarea">
-        <?php
+        <?
           for ($t = 0; $t < $GLOBALS['playercount']; $t++) 
             Player($t);
         ?>
       </div>
-    <?php
+    <?
   }
 
   function Player($seat) {
@@ -90,7 +90,7 @@
         ></button>
         <button class="lifebtn lower" onclick="decrementLife(<?=$seat?>)"></button>
       </div>
-    <?php
+    <?
   }
 
   function LayoutPicker() {
@@ -101,13 +101,13 @@
           <button onclick="pickLayout(1)">2</button>
         </div>
       </div>
-    <?php
+    <?
   }
 
   function DeckChooser($seat) {
     ?>
       <div class="deck_chooser"></div>
-    <?php
+    <?
   }
 ?>
 
@@ -116,10 +116,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BABYLON</title>
-  <link rel="stylesheet" href="css/globals.css">
-  <link rel="stylesheet" href="css/play.css">
-  <script src="lib/jquery-3.7.0.min.js"></script>
-  <script src="src/play.js" defer></script>
+  <link rel="stylesheet" href="/css/globals.css">
+  <link rel="stylesheet" href="/css/play.css">
+  <script src="/lib/jquery-3.7.0.min.js"></script>
+  <script src="/src/play.js" defer></script>
 </head>
 <body>
   <?=PlayArea()?>

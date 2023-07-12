@@ -1,3 +1,3 @@
-<?php
-  require('components/util.php');
+<?
+  require($_SERVER["DOCUMENT_ROOT"].'/components/util.php');
 ?>

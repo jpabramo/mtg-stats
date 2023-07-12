@@ -1,4 +1,4 @@
-<?php
+<?
   $mysqli = mysqli_connect("localhost", "root", "", "mtgstats");
   $result = $mysqli->query("SELECT IMAGE FROM PLAYERS WHERE PLAYERID = $_GET[playerid]");
   $row = $result->fetch_assoc();

@@ -19,10 +19,6 @@ body {
   padding: 1cm;
 }
 
-.deck_chooser {
-
-}
-
 .playarea {
   display: grid;
   position: absolute;
@@ -46,6 +42,7 @@ body {
   width: 100%;
   top: calc(50% - 24pt);
   text-align: center;
+  pointer-events: none;
 }
 
 .lifebtn {

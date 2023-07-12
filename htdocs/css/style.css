@@ -5,37 +5,34 @@ body {
 
 h1 {
   font-size: 36pt;
-  margin-bottom: 2rem;
   text-align: center;
 }
 
 .main {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 2mm;
   min-height: 100vh;
 }
 
 .center {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
-}
-
-.main_menu {
-  position: absolute;
-  bottom: 10vh;
+  max-width: 30cm;
+  flex-grow: 1;
 }
 
 .menu_button {
   font-weight: bolder;
   font-size: 28pt;
   padding: 1cm;
-  margin: 2mm;
+  margin: 2mm 0;
   width: 100%;
   font-variant: small-caps;
 }
@@ -56,14 +53,30 @@ h1 {
   filter: brightness(var(--lightness-active));
 }
 
-.player_select {
-  text-align: center;
-  width: 80vw;
+.clickable:disabled {
+  cursor: not-allowed;
+  filter: brightness(50%);
+}
+
+.clickable:disabled:hover {
+  filter: brightness(50%);
+}
+
+.clickable:disabled:active {
+  filter: brightness(50%);
+}
+
+.player_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .thumbnail {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 5cm;
   margin: 2mm;
 }
@@ -73,8 +86,7 @@ h1 {
   font-style: italic;
   font-weight: bolder;
   font-size: 16pt;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 3%;
 }
 
 .thumbnail img {
@@ -84,13 +96,10 @@ h1 {
 }
 
 .decklist {
-  position: absolute;
   text-align: center;
   padding: 5vw 5vh;
   padding-top: 10vh;
-  top: 0vh;
-  left: 0vw;
-  right: 0vw;
+  z-index: 1;
 }
 
 .close {
@@ -112,18 +121,54 @@ h1 {
 
 .home {
   position: absolute;
-  left: 5vw;
-  top: 5vh;
+  top: 0;
+  left: 0;
   padding: 4px;
   width: 16pt;
   height: 16pt;
   border-radius: 16pt;
-  background-image: url("../images/untap.png");
+  background-image: url("/images/untap.png");
   background-size: contain;
-  z-index: 1;
+  z-index: 2;
 }
 
+.table_menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 2mm;
+}
+
+.table_players {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.table_num {
+  display: flex;
+  width: 5cm;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: 36pt;
+  font-style: italic;
+  margin: 2mm;
+}
+
+.table_button {
+  font-size: 36pt;
+  font-weight: bold;
+  padding: 2mm;
+  width: 100%;
+}
 
 .hidden {
-  display: none;
+  display: none !important;
 }

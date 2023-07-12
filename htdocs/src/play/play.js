@@ -34,19 +34,26 @@ layouts = {
     () => {
       // Two sides
       seat0.classList.add("rotate_270");
+      seat0.style.gridRow = 1;
+      seat0.style.gridColumn = 1;
 
       seat1.classList.add("rotate_270");
+      seat1.style.gridRow = 2;
+      seat1.style.gridColumn = 1;
 
-      seat2.style.gridColumn = 2;
       seat2.classList.add("rotate_90");
+      seat2.style.gridRow = 1;
+      seat2.style.gridColumn = 2;
 
-      seat3.style.gridColumn = 2;
       seat3.classList.add("rotate_90");
+      seat3.style.gridRow = 2;
+      seat3.style.gridColumn = 2;
     },
     () => {
       // Four corners
-      seat0.style.gridRow = '1 / span 2';
       seat0.classList.add("rotate_180");
+      seat0.style.gridRow = 1;
+      seat0.style.gridColumn = '1 / span 2';
 
       seat1.classList.add("rotate_270");
       seat1.style.gridRow = '2 / span 2';
@@ -56,7 +63,8 @@ layouts = {
       seat2.style.gridRow = '2 / span 2';
       seat2.style.gridColumn = 2;
 
-      seat3.style.gridRow = '3 / span 2';
+      seat3.style.gridColumn = '1 / span 2';
+      seat3.style.gridRow = 4;
     }
   ],
   5: [
@@ -111,7 +119,7 @@ function defaultLayout() {
   for(var t = 0; t < num_players; t++) {
     var gridx = t % 2 + 1;
     var gridy = t / 2 + 1;
-    seat = $(`#seat${t}`);
+    seat = $(`#seat${t}`)[0];
     seat.style.gridRow = gridy;
     seat.style.gridColumn = gridx;
     
